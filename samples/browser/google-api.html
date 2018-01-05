@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Claire-Ai</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<h2 class="center" id="headline">
+ <div style="text-align: center">Demo for <img src="image001.png" style="width:100px; vertical-align:middle"/></div></h2>
+<div class="center">
+  <div id="div_language">
+    <select id="select_language" onchange="updateCountry()"></select>
+    &nbsp;&nbsp;
+    <select id="select_dialect"></select>
+  </div>
+</div>
+<div id="info">
+  <p id="info_start">Click on the microphone icon and begin speaking.</p>
+  <p id="info_speak_now">Speak now.</p>
+  <p id="info_no_speech">No speech was detected. You may need to adjust your
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+      microphone settings</a>.</p>
+  <p id="info_no_microphone" style="display:none">
+    No microphone was found. Ensure that a microphone is installed and that
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+    microphone settings</a> are configured correctly.</p>
+  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+  <p id="info_denied">Permission to use microphone was denied.</p>
+  <p id="info_blocked">Permission to use microphone is blocked. To change,
+    go to chrome://settings/contentExceptions#media-stream</p>
+  <p id="info_upgrade">Web Speech API is not supported by this browser.
+     Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+     version 25 or later.</p>
+</div>
+<div class="right">
+  <button id="start_button" onclick="startButton(event)">
+    <img id="start_img" src="mic.gif" alt="Start"></button>
+</div>
+<div id="results">
+  <span id="final_span" class="final"></span>
+  <span id="interim_span" class="interim"></span>
+  <p>
+</div>
+<div id="interpretation">
+</div>
+<div id="patientInfo_template" style="display: none;">
+  <table style="margin: 10px">
+    <tr>
+      <td><span class="patientInfo_name">Patient Name</span></td>
+      <td rowspan="3"><span class="patientInfo_address">123 Fake St <br /> Toronto, ON M1A4F4</span></td></tr>
+    <tr><td>DOB: <span class="patientInfo_dob">YYYY/MM/DD</span> (<span class="patientInfo_age">XX</span> yrs)</td></tr>
+    <tr><td>Sex: <span class="patientInfo_sex">Z</span></td></tr>
+    <tr><td></td><td><button type="button" onclick="" style="width: 80%;" class="btn btn-default" />
+        <span class="patientInfo_phone">XXX-XXX-XXXX</span> <span class="glyphicon glyphicon-phone"></span> </button>
+      </td></tr>
+    <tr><td colspan="2">
+      <table style="margin: 20px;">
+        <tr><th colspan="2">Prescriptions</th></tr>
+        <tr><td> Prescription 1 </td><td> Details for prescription 1 </td></tr>
+        <tr><td> Prescription 2 </td><td> Details for prescription 2 </td></tr>
+      </table>  
+    </td></tr>
+    <tr><td colspan="2">
+      <table style="margin: 20px; margin-top: 0px;">
+        <tr><th colspan="2">Upcoming Appointments</th></tr>
+        <tr><td> Appointment 1 </td><td> Details for appointment 1 </td></tr>
+        <tr><td> Appointment 2 </td><td> Details for appointment 2 </td></tr>
+      </table>  
+    </td></tr>
+  </table>
+</div>
+<script type="text/javascript" src="js/google-api.js"></script>
+<script type="text/javascript" src="js/rules-engine2.js"></script>
+<script type="text/javascript" src="js/patient-search.js"></script>
+<script type="text/javascript" src="js/prescription.js"></script>

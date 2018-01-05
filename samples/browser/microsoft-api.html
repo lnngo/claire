@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Claire-Ai</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<h2 class="center" id="headline">
+  Microsoft Azure Demo for Claire </h2>
+<div class="center">
+  <div id="div_language">
+    <select id="select_language" onchange="updateCountry()"></select>
+    &nbsp;&nbsp;
+    <select id="select_dialect"></select>
+  </div>
+  <div id="div_settings">
+    <table align="Center">
+    <tr>
+      <td align="right">Recognition Mode:</td>
+      <td align="left">
+          <select id="recognitionMode">
+              <option value="Interactive">Interactive</option>
+              <option value="Conversation">Conversation</option>
+              <option value="Dictation">Dictation</option>
+          </select>
+      </td>
+    </tr><tr>
+      <td align="right">Format:</td>
+      <td align="left">
+          <select id="formatOptions">
+              <option value="Simple" selected="selected">Simple Result</option>
+              <option value="Detailed">Detailed Result</option>
+          </select>
+      </td>
+    </tr>
+    </table>
+  </div>
+</div>
+<div id="info">
+  <input id="key" value="df94722c5e214185bf3886e19915db8a" />
+  <p id="info_start">Click on the microphone icon and begin speaking.</p>
+  <p id="info_speak_now">Speak now.</p>
+  <p id="info_no_speech">No speech was detected. You may need to adjust your
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+      microphone settings</a>.</p>
+  <p id="info_no_microphone" style="display:none">
+    No microphone was found. Ensure that a microphone is installed and that
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+    microphone settings</a> are configured correctly.</p>
+  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+  <p id="info_denied">Permission to use microphone was denied.</p>
+  <p id="info_blocked">Permission to use microphone is blocked. To change,
+    go to chrome://settings/contentExceptions#media-stream</p>
+  <p id="info_upgrade">getUserMedia() not supported. Upgrade your browser</p>
+</div>
+<div class="right">
+  <button id="start_button">
+    <img id="start_img" src="mic.gif" alt="Start"></button>
+    <br />
+    <div id="info_status"></div>
+</div>
+<div id="results">
+  <span id="final_span" class="final"></span>
+  <span id="interim_span" class="interim"></span>
+  <p>
+</div>
+<div id="interpretation">
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js"></script>
+<script src="../../distrib/speech.browser.sdk.js"></script>
+<script type="text/javascript" src="js/microsoft-api.js"></script>
+<script type="text/javascript" src="js/rules-engine2.js"></script>
